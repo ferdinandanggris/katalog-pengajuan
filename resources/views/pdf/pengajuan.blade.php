@@ -26,7 +26,47 @@
   td{
     vertical-align: top;
   }
+  th.rotate {
+  /* Something you can count on */
+  height:20px;
+  white-space: nowrap;
+}
 
+.row-bordered{
+  border: 1px solid black !important;
+}
+.row-border-left{
+  border-left: 1px solid black !important;
+}
+.row-border-right{
+  border-right: 1px solid black !important;
+}
+.row-border-top{
+  border-top: 1px solid black !important;
+}
+
+.row-border-bottom{
+  border-bottom: 1px solid black !important;
+}
+.row-double-bordered{
+  border : double !important;
+}
+
+.rotate {
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  width: 1.5em;
+}
+.rotate div {
+     -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+       -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
+             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+         margin-left: -10em;
+         margin-right: -10em;
+}
   </style>
     
 </head>
@@ -46,166 +86,190 @@
       <table class="table-borderless w-100">
         <tr>
           <td >
-            <table class="table-bordered w-100">
+            <table class="table-borderless w-100">
               <tr>
-                <th></th>
-                <th></th>
-                <th>No.:</th>
+                <th colspan="7"></th>
+                <th class="row-bordered" colspan="2">No.: ....</th>
               </tr>
               <tr>
-                <th class="green" colspan="5">
+                <th rowspan="23" class="rotate row-bordered" ><div>USER TERKAIT</div></th>
+                <th class="green row-border-top row-border-left" colspan="5">
                   1. Deskripsi dari Item Material : 
                 </th>
-                <th class="gray" colspan="3">
+                <th class="gray row-border-top row-border-left row-border-right" colspan="3">
                   2. Informasi Equipment :
                 </th>
               </tr>
               <tr>
-                <td rowspan="2" colspan="5">
+                <td rowspan="2" class="row-border-left row-border-bottom row-border-right" colspan="5">
                   Nama Item Material : ....
                 </td>
-                <td colspan="3">
+                <td colspan="3" class="row-border-left row-border-bottom row-border-right">
                   EGI : 
                 </td>
               </tr>
               <tr>
-                <td colspan="3">Component Code : ....</td>
+                <td colspan="3" class="row-bordered">Component Code : ....</td>
               </tr>
               <tr>
-                <td rowspan="4" colspan="5">
-                  Deskripsi Detail
+                <td rowspan="4" class="row-bordered" colspan="5">
+                  Deskripsi Detail : .....
                 </td>
-                <th colspan="3">
+                <th colspan="3" class="row-border-left row-border-right green">
                   Informasi Part Number :
                 </th>
               </tr>
               <tr>
-                <td colspan="3">Manufacture : .....</td>
+                <td colspan="3" class="row-border-bottom row-border-right">Manufacture : .....</td>
               </tr>
               <tr>
-                <td colspan="3">Part Number : ....</td>
+                <td colspan="3" class="row-bordered">Part Number : ....</td>
               </tr>
               <tr>
-                <td colspan="3"> Mand/Recd Part No : ....</td>
+                <td colspan="3" class="row-bordered"> Mand/Recd Part No : ....</td>
               </tr>
               <tr>
-                <td rowspan="3" colspan="5">
+                <td rowspan="3" class="row-bordered" colspan="5">
                   Nama Colloquial / Istilah lain : ....
                 </td>
-                <th class="green" colspan="2">
+                <th class="green row-border-left row-border-right" colspan="2">
                   4. Stock type :
                 </th>
-                <th class="green">
+                <th class="green row-border-left row-border-right">
                   Check (v)
                 </th>
               </tr>
               <tr>
-                <td colspan="2">(C) Chemical</td>
-                <td>.....</td>
+                <td colspan="2" class="row-border-left row-border-bottom row-border-right">(C) Chemical</td>
+                <td class="row-border-bottom row-border-right">.....</td>
               </tr>
               <tr>
-                <td colspan="2">(F) Fuel & Oil</td>
-                <td>.....</td>
+                <td colspan="2" class="row-bordered">(F) Fuel & Oil</td>
+                <td class="row-bordered">.....</td>
               </tr>
               <tr>
-                <th class="gray" colspan="5">5. Sumber Informasi :</th>
+                <th class="gray" class="row-bordered" colspan="5">5. Sumber Informasi :</th>
                 <td colspan="2">(M) Suku cadang Mesin</td>
-                <td>.....</td>
+                <td class="row-bordered">.....</td>
               </tr>
               <tr>
-                <td colspan="5">Penyedia yang disarankan : .....</td>
-                <td colspan="2">(E) Suku cadang Listrik</td>
-                <td>.....</td>
+                <td colspan="5" class="row-bordered">Penyedia yang disarankan : .....</td>
+                <td colspan="2" class="row-bordered">(E) Suku cadang Listrik</td>
+                <td class="row-bordered">.....</td>
               </tr>
               <tr>
-                <td colspan="5">Harga perkiraan : .....</td>
-                <td colspan="2">(I) Suku cadang Instrument/Control</td>
-                <td>.....</td>
+                <td colspan="5" class="row-bordered">Harga perkiraan : .....</td>
+                <td colspan="2" class="row-bordered">(I) Suku cadang Instrument/Control</td>
+                <td class="row-bordered">.....</td>
               </tr>
               <tr>
-                <td colspan="3">Pemakaian per tahun : ....</td>
-                <td rowspan="2" colspan="2">Gudang yang diperlukan : ....</td>
-                <td colspan="2">(G) General/Consumables</td>
-                <td>.....</td>
+                <td colspan="3" class="row-bordered">Pemakaian per tahun : ....</td>
+                <td rowspan="2" class="row-bordered" colspan="2">Gudang yang diperlukan : ....</td>
+                <td colspan="2" class="row-bordered">(G) General/Consumables</td>
+                <td class="row-bordered">.....</td>
               </tr>
               <tr>
-                <td colspan="3">Satuan :</td>
-                <td colspan="2"></td>
-                <td></td>
+                <td colspan="3" class="row-bordered">Satuan :</td>
+                <td colspan="2" class="row-bordered"></td>
+                <td class="row-bordered"></td>
               </tr>
               <tr>
-                <th colspan="8" class="gray">
+                <th colspan="8" class="gray row-border-left row-border-right">
                   6. Control Factor
                 </th>
               </tr>
               <tr>
-                <td colspan="3">
+                <td colspan="3" class="row-border-left row-border-bottom row-border-right">
                   Dibatasi untuk : ....
                 </td>
-                <td rowspan="2" colspan="3">
+                <td rowspan="2" colspan="3" class="row-border-left row-border-bottom row-border-right">
                   Inspeksi khusus : ....
                 </td>
-                <td class="green" colspan="2">
+                <td class="green" colspan="2" class="row-border-left row-border-bottom row-border-right">
                   Kritikalitas (A/B/C) : ....
                 </td>
               </tr>
               <tr>
-                <td colspan="3">
+                <td class="row-bordered" colspan="3">
                   Cross Reff : ....
                 </td>
-                <td colspan="2">
+                <td class="row-bordered" colspan="2">
                   Berbahaya : ....
                 </td>
               </tr>
               <tr>
-                <th class="gray" colspan="8">7. Catatan :</th>
+                <th class="row-border-left row-border-right gray" colspan="8">7. Catatan :</th>
               </tr>
               <tr>
-                <td colspan="8">......</td>
+                <td class="row-border-left row-border-right row-border-bottom" colspan="8">......</td>
               </tr>
               <tr>
-                <th class="gray" colspan="8">8. Informasi Detail User Terkait :</th>
+                <th class="row-border-left row-border-right gray" colspan="8">8. Informasi Detail User Terkait :</th>
               </tr>
               <tr>
-                <td colspan="3">Nama : ....</td>
-                <td colspan="3">Tanggal : ....</td>
-                <td rowspan="2" colspan="2">TTD : ....</td>
+                <td class="row-border-left row-border-bottom row-border-right" colspan="3">Nama : ....</td>
+                <td class="row-border-left row-border-bottom row-border-right" colspan="3">Tanggal : ....</td>
+                <td rowspan="2" class="row-border-left row-border-bottom row-border-right" colspan="2">TTD : ....</td>
               </tr>
               <tr>
-                <td colspan="3">NID : ....</td>
-                <td colspan="3"> Exp Elemen : ....</td>
+                <td class="row-bordered" colspan="3">NID : ....</td>
+                <td class="row-bordered" colspan="3"> Exp Elemen : ....</td>
               </tr>
               <tr>
-                <td colspan="8" class="gray">9. Informasi Cataloguer :</td>
+                <th rowspan="9" class="rotate row-bordered"><div>CATALOGUER</div></th>
+                <th class="row-border-left row-border-right gray" colspan="8">9. Informasi Cataloguer :</th>
               </tr>
               <tr>
-                <td colspan="2">PLN Group Class :</td>
-                <td colspan="6">Nama Item Material :</td>
+                <td class="row-border-left row-border-right row-border-bottom" colspan="2" style="height: 50px">PLN Group Class : ....</td>
+                <td class="row-border-left row-border-right row-border-bottom" colspan="6">Nama Item Material :</td>
               </tr>
               <tr>
-                <td>INC :</td>
-                <td colspan="2">Stock Type :</td>
-                <td colspan="2">Stock Class :</td>
-                <th colspan="3">11. Informasi Aktivasi :</th>
+                <td class="row-bordered">INC :</td>
+                <td class="row-bordered" colspan="2">Stock Type :</td>
+                <td class="row-bordered" colspan="2">Stock Class :</td>
+                <th class="row-border-left row-border-right gray" colspan="3">11. Informasi Aktivasi :</th>
               </tr>
               <tr>
-                <td colspan="3">Cross Reff : ...</td>
+                <td class="row-bordered" colspan="3">Cross Reff : ...</td>
                 <td>ROP : ....</td>
                 <td>ROQ : ....</td>
-                <td colspan="3" rowspan="3">Catatan : ....</td>
+                <td class="row-border-left row-border-bottom row-border-right" colspan="3" rowspan="2">Catatan : ....</td>
               </tr>
               <tr>
-                <td colspan="5">Master list No :</td>
+                <td class="row-bordered" colspan="5">Master list No :</td>
               </tr>
               <tr>
-                <th class="gray"> 10. Persediaan Multi Gudang :</th>
+                <th class="gray row-border-left row-border-right row-border-top" colspan="8"> 10. Persediaan Multi Gudang :</th>
+              </tr>
+              <tr>
+                <td class="row-border-bottom row-border-left row-border-right" colspan="2">Gudang : ....</td>
+                <td class="row-border-bottom row-border-left row-border-right">Bin : ....</td>
+                <td class="row-border-bottom row-border-left row-border-right">Min : ....</td>
+                <td class="row-border-bottom row-border-left row-border-right">Max : ....</td>
+                <td colspan="3" class="row-border-bottom row-border-left row-border-right" >Lead Time : ....</td>
+              </tr>
+              <tr>
+                <td class="row-bordered" colspan="3" rowspan="2">Nama Cataloguer : ....</td>
+                <td class="row-border-right row-border-bottom" colspan="2">Tanggal : ....</td>
+                <td class="row-border-bottom row-border-right row-border-left" colspan="3" rowspan="2">Nomor Helpdesk : ....</td>
+              </tr>
+              <tr>
+                <td class="row-border-right row-border-left row-border-bottom row-border-top" colspan="2" style="height: 50px">TTD : .....</td>
+              </tr>
+              <tr>
+                <td colspan="5"></td>
+                <th class="row-bordered" colspan="4">12. Stock Code : ....</th>
               </tr>
             </table>
 
           </td>
           <td width="120px" style="padding-left: 10px">
+              <div class="m-auto">
                 <button class="green" style="width: 40px;height:10px"></button> Mandatory
+              </div>
+              <div class="m-auto">
                 <button class="gray" style="width: 40px;height:10px"></button> Optional
+              </div>
           </td>
         </tr>
       </table>

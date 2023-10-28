@@ -14,6 +14,7 @@ class ApprovalController extends Controller
 
     public function export($id)
     {
+        // return view('pdf.pengajuan');
         $pdf = PDF::loadView('pdf.pengajuan',[])
         ->setPaper('a4', 'portrait');
         return $pdf->stream();
