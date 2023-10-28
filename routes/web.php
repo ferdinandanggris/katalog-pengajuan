@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -19,19 +20,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if(Auth::check()) {
-        return redirect()->route('users.index');
+        return redirect()->route('approval.index');
     }
     return redirect()->route('login');
 });
 
 Auth::routes();
+Route::post('/login', [LoginController::class, 'authenticated'])->name('login')->middleware('guest');
 
 Route::resource('users', UserController::class)->name('*', 'users')->middleware('auth');
-Route::post('/login', [LoginController::class, 'authenticated'])->name('login')->middleware('guest');
-// Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
-
-// Route::get('/profile', 'ProfileController@index')->name('profile');
-// Route::put('/profile', 'ProfileController@update')->name('profile.update');
+Route::get('/approval', [ApprovalController::class, 'index'])->name('approval.index')->middleware('auth');
+Route::get('/approval/{id}/export', [ApprovalController::class, 'export'])->name('approval.export')->middleware('auth');
 
 
 Route::get('/about', function () {

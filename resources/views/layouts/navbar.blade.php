@@ -11,19 +11,6 @@
               <!-- <div class="sidebar-brand-text mx-3" style="font-size: .8rem;text-align: left">PLN Nusantara Power</div> -->
           </a>
 
-          <!-- Divider -->
-          <hr class="sidebar-divider my-0">
-
-          <!-- Nav Item - Dashboard -->
-          <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                  <i class="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Dashboard</span></a>
-          </li>
-
-          <!-- Divider -->
-          <hr class="sidebar-divider">
-
           <!-- Heading -->
           <div class="sidebar-heading">
               Master
@@ -33,6 +20,20 @@
               <a class="nav-link" href="/users">
                 <i class="fa fa-user" aria-hidden="true"></i>
                   <span>Users</span></a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              Transaksi
+          </div>
+          <!-- Nav Item - Charts -->
+          <li class="nav-item">
+              <a class="nav-link" href="/approval">
+                <i class="fa fa-file-text" aria-hidden="true"></i>
+                  <span>Pengajuan</span></a>
           </li>
 
           <!-- Divider -->

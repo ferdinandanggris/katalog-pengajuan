@@ -5,14 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\RoleModel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+    }
+
+    public function checkIsAdmin()
+    {
+        if (auth()->user()->role->slug != 'admin') {
+            if (request()->method() != 'GET') {
+                abort(403);
+            }
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $this->checkIsAdmin();
         return view('users.index', [
             'users' => User::with("role")->get(),
         ]);
@@ -23,6 +39,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->checkIsAdmin();
         return view('users.create',[
             'roles' => RoleModel::get()
         ]);
@@ -33,6 +50,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->checkIsAdmin();
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|unique:users',
@@ -50,6 +68,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
+        $this->checkIsAdmin();
         return view('users.show', [
             'user' => User::findOrFail($id),
         ]);
@@ -60,6 +79,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
+        $this->checkIsAdmin();
         return view('users.edit', [
             'user' => User::findOrFail($id),
             'roles' => RoleModel::get()
@@ -71,6 +91,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->checkIsAdmin();
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'email' => "required|unique:users,email,{$id}",
@@ -91,6 +112,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
+        $this->checkIsAdmin();
         $user = User::findOrFail($id);
         $user->delete();
         return redirect('/users')->with('success', 'User is successfully deleted');
