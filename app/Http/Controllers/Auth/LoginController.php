@@ -48,7 +48,6 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        $user = User::where('email', $credentials['email'])->first();
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/users');

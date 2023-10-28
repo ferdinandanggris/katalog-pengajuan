@@ -4,10 +4,11 @@
 
           <!-- Sidebar - Brand -->
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-              <div class="sidebar-brand-icon rotate-n-15">
-                  <i class="fas fa-laugh-wink"></i>
+              <div class="sidebar-brand-icon">
+                  <img src="{{ asset('/img/pjb-logo.png') }}" alt="" class="img img-fluid">
               </div>
-              <div class="sidebar-brand-text mx-3">Pengajuan Katalog</div>
+              <div class="sidebar-brand-text"><img src="{{ asset('/img/pjb-teks.png') }}" alt="" class="img img-fluid"></div>
+              <!-- <div class="sidebar-brand-text mx-3" style="font-size: .8rem;text-align: left">PLN Nusantara Power</div> -->
           </a>
 
           <!-- Divider -->
