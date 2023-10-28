@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>@yield('title', config('app.name')) | {{ config('app.name') }}</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -24,15 +24,15 @@
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <style>
-      .required::after {
-        content: ' *';
-        color: red;
-      }
+        .required::after {
+            content: ' *';
+            color: red;
+        }
     </style>
 
 </head>
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
