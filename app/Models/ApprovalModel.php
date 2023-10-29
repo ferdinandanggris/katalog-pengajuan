@@ -186,6 +186,11 @@ class ApprovalModel extends Model
         return $this->user->name ?? '-';
     }
 
+    public function getNidPengajuAttribute()
+    {
+        return $this->user->nid ?? '-';
+    }
+
     public function getStatusPengajuanAttribute()
     {
         return $this->setuju == 1 ? 'Disetujui' : 'Belum Disetujui';

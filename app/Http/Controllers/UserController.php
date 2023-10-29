@@ -52,6 +52,7 @@ class UserController extends Controller
     {
         $this->checkIsAdmin();
         $validatedData = $request->validate([
+            'nid' => 'required',
             'name' => 'required|max:255',
             'email' => 'required|unique:users',
             'role_id' => 'required',
@@ -93,6 +94,7 @@ class UserController extends Controller
     {
         $this->checkIsAdmin();
         $validatedData = $request->validate([
+            'nid' => 'required',
             'name' => 'required|max:255',
             'email' => "required|unique:users,email,{$id}",
             'role_id' => 'required',

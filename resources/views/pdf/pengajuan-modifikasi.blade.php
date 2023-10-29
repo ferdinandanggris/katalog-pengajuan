@@ -258,7 +258,7 @@
                 <td rowspan="2" class="row-border-left row-border-bottom row-border-right" colspan="2">TTD : ....</td>
               </tr>
               <tr>
-                <td class="row-bordered" colspan="3">NID : ....</td>
+                <td class="row-bordered" colspan="3">NID : {{ $data->nid_pengaju }}</td>
                 <td class="row-bordered" colspan="3"> Exp Elemen : ....</td>
               </tr>
               <tr>

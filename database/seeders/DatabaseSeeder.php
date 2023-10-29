@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+            'nid' => '0000000JA',
             'name' => 'Administrator',
             'email' => 'admin@gmail.com',
             'role_id' => 1,
@@ -38,6 +39,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+            'nid' => '0000001JA',
             'name' => 'Kataloger',
             'email' => 'kataloger@gmail.com',
             'role_id' => 2,
@@ -45,6 +47,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+            'nid' => '0000002JA',
             'name' => 'Pegawai',
             'email' => 'pegawai@gmail.com',
             'role_id' => 3,
