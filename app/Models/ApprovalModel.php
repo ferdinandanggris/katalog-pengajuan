@@ -44,6 +44,8 @@ class ApprovalModel extends Model
         'setuju'
     ];
 
+    public $appends = ['nama_pengaju', 'status_pengajuan', 'deskripsi_detail', 'tanggal_pengajuan'];
+
 
     public static function pengajuanBaru(
         $no,
@@ -174,17 +176,37 @@ class ApprovalModel extends Model
         }
     }
 
-    public function setujuLabel()
+    public function user()
     {
-        return $this->setuju ? 'Disetujui' : 'Diajukan';
+        return $this->belongsTo(User::class, 'created_by');
     }
 
-    public function createdBy()
+    public function getNamaPengajuAttribute()
     {
-        return $this->belongsTo(User::class);
+        return $this->user->name ?? '-';
     }
 
-    public function jsonDataParse()
+    public function getStatusPengajuanAttribute()
+    {
+        return $this->setuju == 1 ? 'Disetujui' : 'Belum Disetujui';
+    }
+
+    public function getDeskripsiDetailAttribute()
+    {
+        $data = json_decode($this->json_data);
+        if (!is_object($data)) return [];
+        $resultData = [];
+        foreach ($data as $key => $value) {
+            $resultData[] = [
+                'label' => $key,
+                'value' => $value
+            ];
+        }
+        return $resultData;
+    }
+
+
+    public function getDeskripsiAttribute()
     {
         $templateHtml = "<table class='table'><tbody>";
         $jsonData = json_decode($this->json_data);
@@ -197,7 +219,11 @@ class ApprovalModel extends Model
         }
         $templateHtml .= "</tbody></table>";
 
-
         return $templateHtml;
+    }
+
+    public function getTanggalPengajuanAttribute()
+    {
+        return date('d-m-Y', strtotime($this->created_at));
     }
 }

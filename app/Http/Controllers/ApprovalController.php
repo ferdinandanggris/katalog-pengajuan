@@ -155,7 +155,15 @@ class ApprovalController extends Controller
     public function export($id)
     {
         // return view('pdf.pengajuan');
-        $pdf = PDF::loadView('pdf.pengajuan', [])
+        $data = ApprovalModel::find($id);
+        if (!$data) {
+            abort(404);
+        }
+        $pdf = PDF::loadView('pdf.pengajuan', 
+        [
+        'data' => $data, 
+        'list_stock_type' => StockTypeConstant::list()
+        ])
             ->setPaper('a4', 'portrait');
         return $pdf->stream();
     }
