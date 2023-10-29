@@ -32,6 +32,7 @@
                 <thead>
                     <tr>
                         <th>Pengaju</th>
+                        <th>Jenis Pengajuan</th>
                         <th>Material</th>
                         <th>Status</th>
                         <th>Aksi</th>
@@ -40,24 +41,28 @@
                 <tfoot>
                     <tr>
                         <th>Pengaju</th>
+                        <th>Jenis Pengajuan</th>
                         <th>Material</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
+                    @foreach ($data as $approval)                        
                     <tr>
-                        <td>Budi</td>
-                        <td>Kimia</td>
-                        <td>Disetujui</td>
+                        <td>{{$approval->nama_pengaju}}</td>
+                        <td>{{$approval->jenis_pengajuan}}</td>
+                        <td>{{$approval->item}}</td>
+                        <td>{{$approval->status_pengajuan}}</td>
                         <td class="d-flex">
-                            <a href="/approval/id" class="btn btn-sm btn-warning mr-2 mb-2"><i class="fa fa-eye"
+                            <a href="/approval/{{$approval->id}}" class="btn btn-sm btn-warning mr-2 mb-2"><i class="fa fa-eye"
                                     aria-hidden="true"></i>
-                                <a href="/approval/id/export" class="btn btn-sm btn-secondary mr-2 mb-2"> <i
+                                <a href="/approval/{{$approval->id}}/export" class="btn btn-sm btn-secondary mr-2 mb-2"> <i
                                         class="fas fa-file-pdf"></i>
                                 </a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
