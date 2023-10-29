@@ -21,8 +21,8 @@
                 <div>
                     <a href="{{ url('/approval/baru') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"
                             aria-hidden="true"></i>&nbsp;Baru</a>
-                    <a href="{{ url('/approval/modifikasi') }}" class="btn btn-sm btn-warning text-dark"><i class="fa fa-plus"
-                            aria-hidden="true"></i>&nbsp;Mondifikasi</a>
+                    <a href="{{ url('/approval/modifikasi') }}" class="btn btn-sm btn-warning text-dark"><i
+                            class="fa fa-plus" aria-hidden="true"></i>&nbsp;Mondifikasi</a>
                 </div>
             @endcan
     </div>
@@ -34,6 +34,7 @@
                         <th>Pengaju</th>
                         <th>Jenis Pengajuan</th>
                         <th>Material</th>
+                        <th>Deskripsi</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -43,25 +44,47 @@
                         <th>Pengaju</th>
                         <th>Jenis Pengajuan</th>
                         <th>Material</th>
+                        <th>Deskripsi</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($data as $approval)                        
-                    <tr>
-                        <td>{{$approval->nama_pengaju}}</td>
-                        <td>{{$approval->jenis_pengajuan}}</td>
-                        <td>{{$approval->item}}</td>
-                        <td>{{$approval->status_pengajuan}}</td>
-                        <td class="d-flex">
-                            <a target="_blank" href="/approval/{{$approval->id}}" class="btn btn-sm btn-warning mr-2 mb-2"><i class="fa fa-eye"
-                                    aria-hidden="true"></i>
-                                <a target="_blank" href="/approval/{{$approval->id}}/export" class="btn btn-sm btn-secondary mr-2 mb-2"> <i
-                                        class="fas fa-file-pdf"></i>
-                                </a>
-                        </td>
-                    </tr>
+                    @foreach ($approvals as $approval)
+                        @if ($approval->setuju)
+                            <tr style="background: #1cc88a45">
+                                <td>{{ $approval->nama_pengaju }}</td>
+                                <td>{{ $approval->jenis_pengajuan }}</td>
+                                <td>{{ $approval->item }}</td>
+                                <td>{!! $approval->deskripsi !!}</td>
+                                <td>{{ $approval->status_pengajuan }}</td>
+                                <td>
+                                    <a href="/approval/{{ $approval->id }}/export"
+                                        class="btn btn-sm btn-secondary mr-2 mb-2"> <i class="fas fa-file-pdf"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @else
+                            <tr>
+                                <td>{{ $approval->nama_pengaju }}</td>
+                                <td>{{ $approval->jenis_pengajuan }}</td>
+                                <td>{{ $approval->item }}</td>
+                                <td>{!! $approval->deskripsi !!}</td>
+                                <td>{{ $approval->status_pengajuan }}</td>
+                                <td>
+                                    @if (auth()->user()->role->slug == 'kataloger')
+                                        <a href="{{ route('approval.approve', $approval) }}"
+                                            class="btn btn-sm btn-warning mr-2 mb-2"
+                                            onclick="return confirm('Yakin ingin menjalankan aksi ini ?')">
+                                            <i class="fas fa-check"></i>
+                                        </a>
+                                    @endif
+                                    <a href="/approval/{{ $approval->id }}/export"
+                                        class="btn btn-sm btn-secondary mr-2 mb-2"> <i class="fas fa-file-pdf"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

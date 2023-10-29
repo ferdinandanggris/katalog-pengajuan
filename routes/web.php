@@ -37,6 +37,7 @@ Route::post('/approval/store-modifikasi', [ApprovalController::class, 'storeModi
 
 Route::get('/approval/modifikasi', [ApprovalController::class, 'modifikasi'])->name('approval.modifikasi')->middleware('auth');
 Route::get('/approval/{id}/export', [ApprovalController::class, 'export'])->name('approval.export')->middleware('auth');
+Route::get('/approval/{id}/approve', [ApprovalController::class, 'approve'])->name('approval.approve')->middleware('auth');
 
 
 Route::get('/about', function () {

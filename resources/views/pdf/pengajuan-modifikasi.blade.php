@@ -114,15 +114,15 @@
               </tr>
               <tr>
                 <th class="row-border-bottom row-border-right row-border-left vertical-middle align-middle" colspan="5">
-                  &nbsp;&nbsp;<input type="checkbox" name="" id="" style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp; <span>a. Dipakai sampai habis, lalu dihapus</span>
+                  &nbsp;&nbsp;<input type="checkbox" name="" id="" {{$data->catatan_penghapusan == 'A' ? 'checked' : ''}} style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp; <span>a. Dipakai sampai habis, lalu dihapus</span>
                 </th>
                 <th class="row-border-bottom row-border-left row-border-right" colspan="3">
-                  &nbsp;&nbsp;<input type="checkbox" name="" id="" style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp; <span> c. Dihapuskan tanpa catatan  
+                  &nbsp;&nbsp;<input type="checkbox" name="" id="" {{$data->catatan_penghapusan == 'C' ? 'checked' : ''}} style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp; <span> c. Dihapuskan tanpa catatan  
                 </th>
               </tr>
               <tr>
                 <th class="row-border-top row-bordered" colspan="8">
-                  &nbsp;&nbsp;<input type="checkbox" name="" id="" style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp;<span> b. Dipindah ke..       , dengan pembebanan.. 
+                  &nbsp;&nbsp;<input type="checkbox" name="" id="" {{$data->catatan_penghapusan == 'B' ? 'checked' : ''}} style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp;<span> b. {{$data->catatan_penghapusan == 'B' ?  $data->catatan_penghapusan_teks :"Dipindah ke..       , dengan pembebanan.. "}}
                 </th>
               </tr>
               <tr>
@@ -196,25 +196,25 @@
                 </th>
               </tr>
               <tr>
-                <td class="row-border-left row-border-bottom row-border-right" style="height: 50px;"> Manufacture :</td>
-                <td class="row-border-left row-border-bottom row-border-right" style="height: 50px;"> Part Number :</td>
+                <td class="row-border-left row-border-bottom row-border-right" style="height: 50px;"> Manufacture : {{$data->manufacturer}}</td>
+                <td class="row-border-left row-border-bottom row-border-right" style="height: 50px;"> Part Number : {{$data->part_number}}</td>
                 <th class="row-border-bottom row-border-left row-border-right" colspan="1" >
                   ....
                 </th>
               </tr>
               <tr>
                 <th class="gray" class="row-bordered" colspan="5">5. Sumber Informasi :</th>
-                <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;"> Manufacture :</td>
-                <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;"> Part Number :</td>
+                <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;">....</td>
+                <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;">....</td>
                 <th class="row-border-bottom row-border-left row-border-right" rowspan="2" colspan="1" >
                   ....
                 </th>
               </tr>
               <tr>
-                <th class="row-border-left row-border-bottom row-border-right" colspan="5"> Pemakaian per tahun :</th>
+                <td class="row-border-left row-border-bottom row-border-right" colspan="5"> Pemakaian per tahun : {{$data->pemakaian_per_tahun}}</td>
               </tr>
               <tr>
-                <td class="row-bordered" colspan="5">Satuan :</td>
+                <td class="row-bordered" colspan="5">Satuan : {{$data->satuan}}</td>
                 <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;"> ...</td>
                 <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;"> ....</td>
                 <th class="row-border-bottom row-border-left row-border-right" rowspan="2" colspan="1" >
@@ -222,7 +222,7 @@
                 </th>
               </tr>
               <tr>
-                <td class="row-bordered" colspan="5"> Gudang yang diperlukan :</td>
+                <td class="row-bordered" colspan="5"> Gudang yang diperlukan : {{$data->gudang_yang_diperlukan}}</td>
               </tr>
               <tr>
                 <td colspan="3" class="row-border-left row-border-bottom row-border-right">
@@ -247,7 +247,7 @@
                 <th class="row-border-left row-border-right green" colspan="8">7. Catatan :</th>
               </tr>
               <tr>
-                <td class="row-border-left row-border-right row-border-bottom" colspan="8">......</td>
+                <td class="row-border-left row-border-right row-border-bottom" colspan="8" style="height: 50px;">......</td>
               </tr>
               <tr>
                 <th class="row-border-left row-border-right green" colspan="8">8. Informasi Detail User Terkait :</th>
@@ -277,7 +277,7 @@
                 <td class="row-bordered" colspan="5"> Nama Cataloguer :</td>
               </tr>
               <tr>
-                <td class="row-bordered" colspan="5"> Tanggal Modifikasi :</td>
+                <td class="row-bordered" colspan="5"> Tanggal Modifikasi : {{$data->tanggal_pengajuan}}</td>
               </tr>
             </table>
 

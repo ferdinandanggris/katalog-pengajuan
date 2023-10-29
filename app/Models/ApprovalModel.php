@@ -44,7 +44,7 @@ class ApprovalModel extends Model
         'setuju'
     ];
 
-    public $appends=['nama_pengaju', 'status_pengajuan','deskripsi_detail', 'tanggal_pengajuan'];
+    public $appends = ['nama_pengaju', 'status_pengajuan', 'deskripsi_detail', 'tanggal_pengajuan'];
 
 
     public static function pengajuanBaru(
@@ -203,6 +203,23 @@ class ApprovalModel extends Model
             ];
         }
         return $resultData;
+    }
+
+
+    public function getDeskripsiAttribute()
+    {
+        $templateHtml = "<table class='table'><tbody>";
+        $jsonData = json_decode($this->json_data);
+        if ($jsonData) {
+            foreach ($jsonData as $key => $value) {
+                $templateHtml .= "<tr>";
+                $templateHtml .= "<td>$key</td><td>:</td><td>$value</td>";
+                $templateHtml .= "</tr>";
+            }
+        }
+        $templateHtml .= "</tbody></table>";
+
+        return $templateHtml;
     }
 
     public function getTanggalPengajuanAttribute()
