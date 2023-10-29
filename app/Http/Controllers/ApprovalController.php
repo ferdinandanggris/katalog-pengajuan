@@ -160,7 +160,21 @@ class ApprovalController extends Controller
         if (!$data) {
             abort(404);
         }
-        $pdf = PDF::loadView('pdf.pengajuan', 
+
+        $pdfPengajuan = "pdf.pengajuan";
+        switch ($data['jenis_pengajuan']) {
+            case 'BARU':
+                $pdfPengajuan = "pdf.pengajuan";
+                break;
+            case 'MODIFIKASI':
+                $pdfPengajuan = "pdf.pengajuan-modifikasi";
+                break;
+            default:
+                $pdfPengajuan = "pdf.pengajuan";
+                break;
+        }
+
+        $pdf = PDF::loadView($pdfPengajuan, 
         [
         'data' => $data, 
         'list_stock_type' => StockTypeConstant::list()

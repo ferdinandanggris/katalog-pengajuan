@@ -55,9 +55,9 @@
                         <td>{{$approval->item}}</td>
                         <td>{{$approval->status_pengajuan}}</td>
                         <td class="d-flex">
-                            <a href="/approval/{{$approval->id}}" class="btn btn-sm btn-warning mr-2 mb-2"><i class="fa fa-eye"
+                            <a target="_blank" href="/approval/{{$approval->id}}" class="btn btn-sm btn-warning mr-2 mb-2"><i class="fa fa-eye"
                                     aria-hidden="true"></i>
-                                <a href="/approval/{{$approval->id}}/export" class="btn btn-sm btn-secondary mr-2 mb-2"> <i
+                                <a target="_blank" href="/approval/{{$approval->id}}/export" class="btn btn-sm btn-secondary mr-2 mb-2"> <i
                                         class="fas fa-file-pdf"></i>
                                 </a>
                         </td>

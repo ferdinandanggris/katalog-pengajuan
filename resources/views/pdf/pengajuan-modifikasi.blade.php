@@ -52,6 +52,9 @@
   border : double !important;
 }
 
+.title{
+  font-weight: bold !important;
+}
 .rotate {
   text-align: center;
   white-space: nowrap;
@@ -67,6 +70,10 @@
          margin-left: -10em;
          margin-right: -10em;
 }
+
+.vertical-middle{
+  vertical-align: middle !important;
+}
   </style>
     
 </head>
@@ -75,8 +82,9 @@
     <div class="container">
       <div class="row">
         <img src="img/pln.png" width="150px" style="position:absolute;margin-left:-40px" >
-        <div class="col-12">
-         <h4 class="text-center">Formulir Pendaftaran Katalog</h4>
+        <div class="col title" style="margin-left:110px">
+         <p class="text-left fw-bold mb-0" style="font-size:14px">PT PEMBANGKITAN JAWA BALI</p>
+         <p class="text-left fw-bold my-0 py-0" style="font-size:14px">FORMULIR MODIFIKASI KATALOG</p>
         </div>
       </div>
     </div>
@@ -92,24 +100,57 @@
                 <th class="row-bordered" colspan="2">No.: {{$data->no}}</th>
               </tr>
               <tr>
-                <th rowspan="23" class="rotate row-bordered" ><div>USER TERKAIT</div></th>
-                <th class="green row-border-top row-border-left" colspan="5">
-                  1. Deskripsi dari Item Material : 
+                <th colspan="6"></th>
+                <th class="row-bordered" colspan="3">1. Stock Code : {{$data->stock_code}}</th>
+              </tr>
+              <tr>
+                <th rowspan="24" class="rotate row-bordered" ><div>USER TERKAIT</div></th>
+                <th class="row-bordered text-center" colspan="8"><i>Masukkan Data hanya pada kolom yang akan diubah !</i></th>
+              </tr>
+              <tr>
+                <th class="green row-border-top row-border-left" colspan="8">
+                  2. Catatan Penghapusan Item Material :
                 </th>
-                <th class="gray row-border-top row-border-left row-border-right" colspan="3">
-                  2. Informasi Equipment :
+              </tr>
+              <tr>
+                <th class="row-border-bottom row-border-right row-border-left vertical-middle align-middle" colspan="5">
+                  &nbsp;&nbsp;<input type="checkbox" name="" id="" style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp; <span>a. Dipakai sampai habis, lalu dihapus</span>
+                </th>
+                <th class="row-border-bottom row-border-left row-border-right" colspan="3">
+                  &nbsp;&nbsp;<input type="checkbox" name="" id="" style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp; <span> c. Dihapuskan tanpa catatan  
+                </th>
+              </tr>
+              <tr>
+                <th class="row-border-top row-bordered" colspan="8">
+                  &nbsp;&nbsp;<input type="checkbox" name="" id="" style="transform: scale(1.9)">&nbsp;&nbsp;&nbsp;&nbsp;<span> b. Dipindah ke..       , dengan pembebanan.. 
+                </th>
+              </tr>
+              <tr>
+                <th class="green row-border-top row-border-left" colspan="5">
+                  3. Deskripsi dari Item Material : 
+                </th>
+                <th class="gray row-border-top row-border-left row-border-right" colspan="2">
+                  4. Informasi Equipment :
+                </th>
+                <th class="gray row-border-top row-border-left row-border-right" colspan="1">
+                  Add/Del
                 </th>
               </tr>
               <tr>
                 <td rowspan="2" class="row-border-left row-border-bottom row-border-right" colspan="5">
                   Nama Item Material : {{$data->item}}
                 </td>
-                <td colspan="3" class="row-border-left row-border-bottom row-border-right">
+                <td colspan="2" class="row-border-left row-border-bottom row-border-right">
                   EGI : {{$data->egi}}
+                </td>
+                <td colspan="1" class="row-border-left row-border-bottom row-border-right">
+                  
                 </td>
               </tr>
               <tr>
-                <td colspan="3" class="row-bordered">Component Code : {{$data->component_code}}</td>
+                <td colspan="2" class="row-bordered">Component Code : {{$data->component_code}}</td>
+                <td colspan="1" class="row-border-left row-border-bottom row-border-right">
+                </td>
               </tr>
               <tr>
                 <td rowspan="4" class="row-bordered" colspan="5">
@@ -120,68 +161,68 @@
                   @endforeach
                   </ul>
                 </td>
-                <th colspan="3" class="row-border-left row-border-right green">
-                  Informasi Part Number :
-                </th>
+                <td colspan="2" class="row-border-left row-border-bottom row-border-right">
+                  EGI : ...
+                </td>
+                <td colspan="1" class="row-border-left row-border-bottom row-border-right">
+                </td>
               </tr>
               <tr>
-                <td colspan="3" class="row-border-bottom row-border-right">Manufacture : {{$data->manufacturer}}</td>
+                <td colspan="2" class="row-bordered">Component Code : ....</td>
+                <td colspan="1" class="row-border-left row-border-bottom row-border-right">
+                </td>
               </tr>
               <tr>
-                <td colspan="3" class="row-bordered">Part Number : {{$data->part_number}}</td>
+                <td colspan="2" class="row-border-left row-border-bottom row-border-right">
+                  EGI : ...
+                </td>
+                <td colspan="1" class="row-border-left row-border-bottom row-border-right">
+                </td>
               </tr>
               <tr>
-                <td colspan="3" class="row-bordered"> Mand/Recd Part No : {{$data->recd_part_no}}</td>
+                <td colspan="2" class="row-bordered">Component Code : ....</td>
+                <td colspan="1" class="row-border-left row-border-bottom row-border-right">
+                </td>
               </tr>
               <tr>
-                <td rowspan="3" class="row-bordered" colspan="5">
+                <td rowspan="2" class="row-bordered" colspan="5">
                   Nama Colloquial / Istilah lain : ....
                 </td>
                 <th class="green row-border-left row-border-right" colspan="2">
-                  4. Stock type :
+                  5. Informasi Part Number :  
                 </th>
-                <th class="green row-border-left row-border-right">
-                  Check (v)
+                <th class="green row-border-top row-border-right" colspan="1">
+                  Add/Del
                 </th>
               </tr>
               <tr>
-                <td colspan="2" class="row-border-left row-border-bottom row-border-right">(C) Chemical</td>
-                <td class="row-border-bottom row-border-right text-center">{{$list_stock_type["(C) Chemical"] == $data->stock_type ? 'V' : ''}}</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="row-bordered">(F) Fuel & Oil</td>
-                <td class="row-bordered text-center">{{$list_stock_type["(F) Fuel & Oil"] == $data->stock_type ? 'V' : ''}}</td>
+                <td class="row-border-left row-border-bottom row-border-right" style="height: 50px;"> Manufacture :</td>
+                <td class="row-border-left row-border-bottom row-border-right" style="height: 50px;"> Part Number :</td>
+                <th class="row-border-bottom row-border-left row-border-right" colspan="1" >
+                  ....
+                </th>
               </tr>
               <tr>
                 <th class="gray" class="row-bordered" colspan="5">5. Sumber Informasi :</th>
-                <td colspan="2">(M) Suku cadang Mesin</td>
-                <td class="row-bordered text-center">{{$list_stock_type["(M) Suku cadang Mesin"] == $data->stock_type ? 'V' : ''}}</td>
-              </tr>
-              <tr>
-                <td colspan="5" class="row-bordered">Penyedia yang disarankan : {{$data->penyedia_yang_disarankan}}</td>
-                <td colspan="2" class="row-bordered">(E) Suku cadang Listrik</td>
-                <td class="row-bordered text-center">{{$list_stock_type["(E) Suku cadang Listrik"] == $data->stock_type ? 'V' : ''}}</td>
-              </tr>
-              <tr>
-                <td colspan="5" class="row-bordered">Harga perkiraan : {{"Rp " . number_format($data->harga_perkiraan,2,',','.');}}</td>
-                <td colspan="2" class="row-bordered">(I) Suku cadang Instrument/Control</td>
-                <td class="row-bordered text-center">{{$list_stock_type["(I) Suku cadang Instrument/Control"] == $data->stock_type ? 'V' : ''}}</td>
-              </tr>
-              <tr>
-                <td colspan="3" class="row-bordered">Pemakaian per tahun : {{$data->pemakaian_per_tahun}}</td>
-                <td rowspan="2" class="row-bordered" colspan="2">Gudang yang diperlukan : {{$data->gudang_yang_diperlukan}}</td>
-                <td colspan="2" class="row-bordered">(G) General/Consumables</td>
-                <td class="row-bordered text-center">{{$list_stock_type["(G) General/Consumables"] == $data->stock_type ? 'V' : ''}}</td>
-              </tr>
-              <tr>
-                <td colspan="3" class="row-bordered">Satuan : {{$data->satuan}}</td>
-                <td colspan="2" class="row-bordered"></td>
-                <td class="row-bordered"></td>
-              </tr>
-              <tr>
-                <th colspan="8" class="gray row-border-left row-border-right">
-                  6. Control Factor
+                <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;"> Manufacture :</td>
+                <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;"> Part Number :</td>
+                <th class="row-border-bottom row-border-left row-border-right" rowspan="2" colspan="1" >
+                  ....
                 </th>
+              </tr>
+              <tr>
+                <th class="row-border-left row-border-bottom row-border-right" colspan="5"> Pemakaian per tahun :</th>
+              </tr>
+              <tr>
+                <td class="row-bordered" colspan="5">Satuan :</td>
+                <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;"> ...</td>
+                <td class="row-border-left row-border-bottom row-border-right" rowspan="2" style="height: 50px;"> ....</td>
+                <th class="row-border-bottom row-border-left row-border-right" rowspan="2" colspan="1" >
+                  ....
+                </th>
+              </tr>
+              <tr>
+                <td class="row-bordered" colspan="5"> Gudang yang diperlukan :</td>
               </tr>
               <tr>
                 <td colspan="3" class="row-border-left row-border-bottom row-border-right">
@@ -203,13 +244,13 @@
                 </td>
               </tr>
               <tr>
-                <th class="row-border-left row-border-right gray" colspan="8">7. Catatan :</th>
+                <th class="row-border-left row-border-right green" colspan="8">7. Catatan :</th>
               </tr>
               <tr>
                 <td class="row-border-left row-border-right row-border-bottom" colspan="8">......</td>
               </tr>
               <tr>
-                <th class="row-border-left row-border-right gray" colspan="8">8. Informasi Detail User Terkait :</th>
+                <th class="row-border-left row-border-right green" colspan="8">8. Informasi Detail User Terkait :</th>
               </tr>
               <tr>
                 <td class="row-border-left row-border-bottom row-border-right" colspan="3">Nama : {{$data->nama_pengaju}}</td>
@@ -221,51 +262,25 @@
                 <td class="row-bordered" colspan="3"> Exp Elemen : ....</td>
               </tr>
               <tr>
-                <th rowspan="9" class="rotate row-bordered"><div>CATALOGUER</div></th>
+                <th rowspan="5" class="rotate row-bordered"><div>CATALOGUER</div></th>
                 <th class="row-border-left row-border-right gray" colspan="8">9. Informasi Cataloguer :</th>
               </tr>
               <tr>
-                <td class="row-border-left row-border-right row-border-bottom" colspan="2" style="height: 50px;">PLN Group Class : ....</td>
-                <td class="row-border-left row-border-right row-border-bottom" colspan="6">Nama Item Material :</td>
+                <td class="row-border-left row-border-right row-border-bottom" colspan="5" rowspan="2">Catatan : ....</td>
+                <td class="row-border-left row-border-right row-border-bottom" colspan="3">No Helpdesk : ....</td>
               </tr>
               <tr>
-                <td class="row-bordered">INC :</td>
-                <td class="row-bordered" colspan="2">Stock Type :</td>
-                <td class="row-bordered" colspan="2">Stock Class :</td>
-                <th class="row-border-left row-border-right gray" colspan="3">11. Informasi Aktivasi :</th>
+                <td class="row-bordered" rowspan="3"> Tanggal Approval :</td>
+                <td class="row-bordered" colspan="2" rowspan="3"> TTD :</td>
               </tr>
               <tr>
-                <td class="row-bordered" colspan="3">Cross Reff : ...</td>
-                <td>ROP : ....</td>
-                <td>ROQ : ....</td>
-                <td class="row-border-left row-border-bottom row-border-right" colspan="3" rowspan="2">Catatan : ....</td>
+                <td class="row-bordered" colspan="5"> Nama Cataloguer :</td>
               </tr>
               <tr>
-                <td class="row-bordered" colspan="5">Master list No :</td>
-              </tr>
-              <tr>
-                <th class="gray row-border-left row-border-right row-border-top" colspan="8"> 10. Persediaan Multi Gudang :</th>
-              </tr>
-              <tr>
-                <td class="row-border-bottom row-border-left row-border-right" colspan="2">Gudang : ....</td>
-                <td class="row-border-bottom row-border-left row-border-right">Bin : ....</td>
-                <td class="row-border-bottom row-border-left row-border-right">Min : ....</td>
-                <td class="row-border-bottom row-border-left row-border-right">Max : ....</td>
-                <td colspan="3" class="row-border-bottom row-border-left row-border-right" >Lead Time : ....</td>
-              </tr>
-              <tr>
-                <td class="row-bordered" colspan="3" rowspan="2">Nama Cataloguer : ....</td>
-                <td class="row-border-right row-border-bottom" colspan="2">Tanggal : ....</td>
-                <td class="row-border-bottom row-border-right row-border-left" colspan="3" rowspan="2">Nomor Helpdesk : ....</td>
-              </tr>
-              <tr>
-                <td class="row-border-right row-border-left row-border-bottom row-border-top" colspan="2" style="height: 50px">TTD : .....</td>
-              </tr>
-              <tr>
-                <td colspan="5"></td>
-                <th class="row-bordered" colspan="4">12. Stock Code : ....</th>
+                <td class="row-bordered" colspan="5"> Tanggal Modifikasi :</td>
               </tr>
             </table>
+
 
           </td>
           <td width="120px" style="padding-left: 10px">
