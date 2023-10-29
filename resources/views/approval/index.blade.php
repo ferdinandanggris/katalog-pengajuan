@@ -21,8 +21,8 @@
                 <div>
                     <a href="{{ url('/approval/baru') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"
                             aria-hidden="true"></i>&nbsp;Baru</a>
-                    <a href="{{ url('/approval/modifikasi') }}" class="btn btn-sm btn-warning text-dark"><i class="fa fa-plus"
-                            aria-hidden="true"></i>&nbsp;Mondifikasi</a>
+                    <a href="{{ url('/approval/modifikasi') }}" class="btn btn-sm btn-warning text-dark"><i
+                            class="fa fa-plus" aria-hidden="true"></i>&nbsp;Mondifikasi</a>
                 </div>
             @endcan
     </div>
@@ -46,18 +46,26 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <td>Budi</td>
-                        <td>Kimia</td>
-                        <td>Disetujui</td>
-                        <td class="d-flex">
-                            <a href="/approval/id" class="btn btn-sm btn-warning mr-2 mb-2"><i class="fa fa-eye"
-                                    aria-hidden="true"></i>
-                                <a href="/approval/id/export" class="btn btn-sm btn-secondary mr-2 mb-2"> <i
-                                        class="fas fa-file-pdf"></i>
+                    @foreach ($approvals as $approval)
+                        <tr>
+                            <td>{{ $approval->createdBy ? $approval->createdBy->name : '-' }}</td>
+                            <td>{!! $approval->jsonDataParse() !!}</td>
+                            <td>{{ $approval->setujuLabel() }}</td>
+                            <td>
+                                <a href="{{ route('approval.export', $approval) }}"
+                                    class="btn btn-sm btn-secondary mr-2 mb-2">
+                                    <i class="fas fa-file-pdf"></i>
                                 </a>
-                        </td>
-                    </tr>
+                                @if (auth()->user()->role->slug == 'kataloger')
+                                    <a href="{{ route('approval.approve', $approval) }}"
+                                        class="btn btn-sm btn-secondary mr-2 mb-2"
+                                        onclick="return confirm('Yakin ingin menjalankan aksi ini ?')">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

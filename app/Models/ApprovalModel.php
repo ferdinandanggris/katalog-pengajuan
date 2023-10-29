@@ -173,4 +173,31 @@ class ApprovalModel extends Model
             return ['success' => false, 'message' => 'Terjadi kesalahan saat menyimpan data'];
         }
     }
+
+    public function setujuLabel()
+    {
+        return $this->setuju ? 'Disetujui' : 'Diajukan';
+    }
+
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function jsonDataParse()
+    {
+        $templateHtml = "<table class='table'><tbody>";
+        $jsonData = json_decode($this->json_data);
+        if ($jsonData) {
+            foreach ($jsonData as $key => $value) {
+                $templateHtml .= "<tr>";
+                $templateHtml .= "<td>$key</td><td>:</td><td>$value</td>";
+                $templateHtml .= "</tr>";
+            }
+        }
+        $templateHtml .= "</tbody></table>";
+
+
+        return $templateHtml;
+    }
 }

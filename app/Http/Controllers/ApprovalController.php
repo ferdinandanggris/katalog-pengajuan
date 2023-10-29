@@ -13,7 +13,8 @@ class ApprovalController extends Controller
 {
     public function index()
     {
-        return view('approval.index');
+        $approvals = ApprovalModel::all();
+        return view('approval.index', compact('approvals'));
     }
 
     public function baru()
@@ -157,5 +158,16 @@ class ApprovalController extends Controller
         $pdf = PDF::loadView('pdf.pengajuan', [])
             ->setPaper('a4', 'portrait');
         return $pdf->stream();
+    }
+
+    public function approve($id)
+    {
+        $approval = ApprovalModel::findOrFail($id);
+
+        $approval->setuju = 1;
+
+        $approval->save();
+
+        return redirect()->route('approval.index');
     }
 }
