@@ -14,7 +14,7 @@
                     <label for="nid" class="col-sm-2 col-form-label required">NID</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control @error('nid') is-invalid  @enderror" id="nid"
-                            placeholder="nama" name="nid">
+                            placeholder="nama" name="nid" value="{{ old('nid', $user->nid) }}">
                         @error('nid')
                             <div class="invalid-feedback">
                                 {{ $message }}
