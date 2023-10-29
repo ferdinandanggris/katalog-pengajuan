@@ -163,7 +163,7 @@
                 <td class="row-bordered text-center">{{$list_stock_type["(E) Suku cadang Listrik"] == $data->stock_type ? 'V' : ''}}</td>
               </tr>
               <tr>
-                <td colspan="5" class="row-bordered">Harga perkiraan : {{"Rp " . number_format($data->harga_perkiraan,2,',','.');}}</td>
+                <td colspan="5" class="row-bordered">Harga perkiraan : {{"Rp " . number_format(intval($data->harga_perkiraan),2,',','.');}}</td>
                 <td colspan="2" class="row-bordered">(I) Suku cadang Instrument/Control</td>
                 <td class="row-bordered text-center">{{$list_stock_type["(I) Suku cadang Instrument/Control"] == $data->stock_type ? 'V' : ''}}</td>
               </tr>
