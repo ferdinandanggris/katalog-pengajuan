@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    if(Auth::check()) {
+    if (Auth::check()) {
         return redirect()->route('approval.index');
     }
     return redirect()->route('login');
@@ -30,6 +30,12 @@ Route::post('/login', [LoginController::class, 'authenticated'])->name('login')-
 
 Route::resource('users', UserController::class)->name('*', 'users')->middleware('auth');
 Route::get('/approval', [ApprovalController::class, 'index'])->name('approval.index')->middleware('auth');
+Route::get('/approval/baru', [ApprovalController::class, 'baru'])->name('approval.baru')->middleware('auth');
+
+Route::post('/approval/store-baru', [ApprovalController::class, 'storeBaru'])->name('approval.store-baru')->middleware('auth');
+Route::post('/approval/store-modifikasi', [ApprovalController::class, 'storeModifikasi'])->name('approval.store-modifikasi')->middleware('auth');
+
+Route::get('/approval/modifikasi', [ApprovalController::class, 'modifikasi'])->name('approval.modifikasi')->middleware('auth');
 Route::get('/approval/{id}/export', [ApprovalController::class, 'export'])->name('approval.export')->middleware('auth');
 
 
