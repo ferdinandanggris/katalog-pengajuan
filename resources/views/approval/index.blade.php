@@ -72,7 +72,7 @@
                                 <td>{!! $approval->deskripsi !!}</td>
                                 <td>{{ $approval->status_pengajuan }}</td>
                                 <td>
-                                    @if (auth()->user()->role->slug == 'kataloger')
+                                    @if (auth()->user()->role->slug == 'kataloger' || auth()->user()->role->slug == 'admin')
                                         <a href="{{ route('approval.approve', $approval) }}"
                                             class="btn btn-sm btn-warning mr-2 mb-2"
                                             onclick="return confirm('Yakin ingin menjalankan aksi ini ?')">
